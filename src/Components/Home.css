@@ -1,0 +1,115 @@
+/* Homecard.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px; /* Negative margin to counteract padding in columns */
+  }
+  
+  
+  .card {
+    margin: 15px; /* Adjust margin as needed for spacing between cards */
+    width: 100%; /* Ensure cards take up full width within their container */
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid #000000;
+    border-radius: 8px;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .card-text {
+    color: #555;
+  }
+
+  .black-banner {
+    background-color: black;
+    padding: 20px;
+  }
+  
+  /* Additional styles for the banner text */
+  .black-banner h2 {
+    color: white;
+    font-size: 7A0px;
+  }
+  
+  .btn-primary {
+    background-color: #080808;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #010101;
+  }
+  .testimonials {
+    background-color: black; /* Set the background color of the testimonial section to black */
+    padding: 20px; /* Adjust padding as needed */
+    
+  }
+  .testimonials h2 {
+    color: white; /* Set the text color of the testimonials heading to white */
+    font-size: 50px;
+  }
+  
+  
+ .testimonials .carousel-inner {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.testimonials .carousel-item {
+  width: 100%;
+}
+
+.testimonial-card {
+  margin: 0 auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  background-color: black;
+  border: none; /* Remove the default border */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30px;
+  height: 30px;
+  background-color: transparent; /* Set the arrow background to transparent */
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  content: none; /* Remove the default content */
+}
+
+/* FontAwesome icons */
+.carousel-control-prev i,
+.carousel-control-next i {
+  color: white; /* Set the icon color to white */
+  font-size: 24px; /* Set the icon size */
+}
