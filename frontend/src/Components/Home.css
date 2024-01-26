@@ -1,11 +1,9 @@
 /* Homecard.css */
-
 .card-container {
     display: flex;
     flex-wrap: wrap;
     margin: -15px; /* Negative margin to counteract padding in columns */
   }
-  
   
   .card {
     margin: 15px; /* Adjust margin as needed for spacing between cards */
@@ -48,7 +46,7 @@
   /* Additional styles for the banner text */
   .black-banner h2 {
     color: white;
-    font-size: 7A0px;
+    font-size: 70px;
   }
   
   .btn-primary {
@@ -64,4 +62,9 @@
   .btn-primary:hover {
     background-color: #010101;
   }
+  #carouselExample {
+    width: 100%;
+  }
+
+  
  

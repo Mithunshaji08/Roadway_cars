@@ -6,28 +6,28 @@ const Home = () => {
   return (
     <div>
       <section>
-      <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src="/bently.png" className="d-block w-100" alt="Bentley" />
-          </div>
-          <div className="carousel-item">
-            <img src="/bmw.png" className="d-block w-100" alt="BMW" />
-          </div>
-          <div className="carousel-item">
-            <img src="/lAND ROVER.png" className="d-block w-100" alt="Land Rover" />
-          </div>
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-      </section>
+      <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/bmw.png" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="/lAND ROVER.png" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="/bently.png" class="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+           </section>
       <section className="black-banner">
         <h2 className="text-center mt-4 mb-4 text-white">Our Cars</h2>
 

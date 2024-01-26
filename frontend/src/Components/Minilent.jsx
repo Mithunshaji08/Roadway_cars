@@ -7,7 +7,7 @@ import './Carlent.css';
 const Minilent = () => {
   return (
     <div className="car-details-container">
-      <div className="carousel">
+      <div id="carousel">
         {/* Add your carousel code here */}
         <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">

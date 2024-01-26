@@ -29,8 +29,8 @@ const Navbar = () => {
         <Link to={'/login'}>
           <FaSignInAlt className="nav-icon" /> Log in
         </Link>
-        <Link to={'/signin'}>
-          <FaUser className="nav-icon" /> Sign in
+        <Link to={'/signup'}>
+          <FaUser className="nav-icon" /> Sign up
         </Link>
       </div>
       <div className="navbar__menu-icon" onClick={toggleNavbar}>

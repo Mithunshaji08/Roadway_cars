@@ -6,12 +6,12 @@
     background-color: #f8f8f8;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -20px -4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .carousel {
-    width: 50%;
-  margin-right: -266px;
+  #carousel {
+    width: 30%;
+    margin-right: 10px;
   }
   
   .car-details {
