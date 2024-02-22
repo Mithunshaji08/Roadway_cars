@@ -1,0 +1,59 @@
+/* CarLendorDashboard.css */
+
+.car-lendor-dashboard {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .side-nav {
+    width: 200px;
+    background-color: #000000;
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .side-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .side-nav li {
+    margin-bottom: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 67px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-link svg {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  .nav-link:hover {
+    background-color: #dee2e5;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-name {
+    text-align: center;
+  }
+  .lendor-name{
+    text-align: center;
+  }
+  

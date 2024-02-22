@@ -1,0 +1,32 @@
+.lender-info {
+    padding: 20px;
+  }
+  
+  .lent-car-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .lent-car-table th, .lent-car-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .lent-car-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+  

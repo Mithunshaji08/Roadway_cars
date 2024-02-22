@@ -1,42 +1,52 @@
-import React, { useState } from 'react';
-import { FaCar, FaUser, FaMoneyBillAlt } from 'react-icons/fa'; // Import icons from react-icons
-import './Userdashboard.css'; // Import your CSS file for styling
+import React from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
+import { FaCar, FaUser, FaInfoCircle, FaEdit } from 'react-icons/fa'; // Import FaEdit
+import './CarLendorDashboard.css';
 
-const UserDashboard = () => {
-  const [currentPage, setCurrentPage] = useState('Rent a Car');
+import RentAcar from './RentAcar';
+import YourProfile from './YourProfile';
+import UserInfo from './UserInfo';
+import Userupdate from './Userupdate'; // Import the UpdateProfile component
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'Rent a Car':
-        return <div><h2>Rent a Car Page</h2><p>This is the content for renting a car.</p></div>;
-      case 'Profile':
-        return <div><h2>Profile Page</h2><p>This is the content for the profile page.</p></div>;
-      case 'Your Payments':
-        return <div><h2>Your Payments Page</h2><p>This is the content for your payments page.</p></div>;
-      default:
-        return null;
-    }
-  };
-
+const CarLendorDashboard = () => {
+  const storedUser = localStorage.getItem('user');
+  const userId = storedUser ? JSON.parse(storedUser)._id : null;
   return (
-    <div className="user-dashboard">
-      <div className="usernavbar">
-        <div className={`nav-item ${currentPage === 'Rent a Car' && 'active'}`} onClick={() => setCurrentPage('Rent a Car')}>
-          <FaCar /> Rent a Car
-        </div>
-        <div className={`nav-item ${currentPage === 'Profile' && 'active'}`} onClick={() => setCurrentPage('Profile')}>
-          <FaUser /> Profile
-        </div>
-        <div className={`nav-item ${currentPage === 'Your Payments' && 'active'}`} onClick={() => setCurrentPage('Your Payments')}>
-          <FaMoneyBillAlt /> Your Payments
-        </div>
-      </div>
-
+    <div className="car-lendor-dashboard">
+      <nav className="side-nav">
+        <ul>
+          <li>
+            <Link to={`/user-dashboard/rend-a-car/${userId}`} className="nav-link">
+              <FaCar /> Rent a Car
+            </Link>
+          </li>
+          <li>
+            <Link to={`/user-dashboard/profile/${userId}`} className="nav-link">
+              <FaUser /> Profile
+            </Link>
+          </li>
+          <li>
+            <Link to={`/user-dashboard/info/${userId}`} className="nav-link">
+              <FaInfoCircle /> Info
+            </Link>
+          </li>
+          <li>
+            <Link to={`/user-dashboard/update-profile/${userId}`} className="nav-link"> {/* New link for updating profile */}
+              <FaEdit /> Update Profile {/* Replaced FaUserEdit with FaEdit */}
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <div className="main-content">
-        {renderPage()}
+        <Routes>
+          <Route path="/rend-a-car/:userId" element={<RentAcar />} />
+          <Route path="/profile/:userId" element={<YourProfile />} />
+          <Route path="/info/:userId" element={<UserInfo />} />
+          <Route path="/update-profile/:userId" element={<Userupdate />} /> {/* Route for updating profile */}
+        </Routes>
       </div>
     </div>
   );
 }
 
-export default UserDashboard;
+export default CarLendorDashboard;

@@ -1,5 +1,8 @@
+// Signup.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -8,9 +11,12 @@ const Signup = () => {
     password: '',
   });
 
-  const [selectedRole, setSelectedRole] = useState('user'); // Default to 'user'
-
+  const [selectedRole, setSelectedRole] = useState('user');
   const [errors, setErrors] = useState({});
+
+  // New state variables for success and error messages
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -18,7 +24,6 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
 
-    // Clear validation error when the user starts typing
     if (e.target.name in errors) {
       setErrors({
         ...errors,
@@ -49,97 +54,107 @@ const Signup = () => {
     }
     return true;
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate each field before submitting
     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
 
     if (isEmailValid && isPasswordValid) {
-      // Your sign-in logic goes here
-      console.log('Signing in with:', formData, 'Role:', selectedRole);
-      
-      // Use axios here for form submission to your backend
-      axios.post("http://localhost:8055/signup", formData)
-        .then(response => {
-          console.log(response.data); // Handle successful signup
-        })
-        .catch(error => {
-          console.error('Error in signup:', error.response.data);
-          // Handle signup error, show an error message to the user
+      try {
+        const response = await axios.post("http://localhost:8055/signup", {
+          ...formData,
+          role: selectedRole, // Include selectedRole in the request
         });
+
+        if (response && response.data) {
+          console.log(response.data);
+          toast.success(response.data.message);
+          setErrorMessage('');
+          setSuccessMessage(response.data.message); // Set success message
+        } else {
+          console.error('Invalid response format:', response);
+          toast.error('Signup failed. Please try again.');
+          setSuccessMessage('');
+        }
+      } catch (error) {
+        console.error('Error in signup:', error.response ? error.response.data : error.message);
+        toast.error(error.response ? error.response.data.error || 'Signup failed. Please try again.' : 'Signup failed. Please try again.');
+        setSuccessMessage('');
+      }
     }
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.formContainer}>
-        <div style={styles.card}>
-          <h2>Sign Up</h2>
-          <form onSubmit={handleSubmit}>
-            <div style={styles.formGroup}>
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                style={styles.input}
-              />
-            </div>
-            <div style={styles.formGroup}>
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              />
-              {errors.email && <span style={styles.error}>{errors.email}</span>}
-            </div>
-            <div style={styles.formGroup}>
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              />
-              {errors.password && <span style={styles.error}>{errors.password}</span>}
-            </div>
-            <div style={styles.formGroup}>
-              <label htmlFor="role">Role:</label>
-              <select
-                id="role"
-                name="role"
-                value={selectedRole}
-                onChange={(e) => setSelectedRole(e.target.value)}
-                style={styles.input}
-              >
-                <option value="user">User</option>
-                <option value="lender">Lender</option>
-              </select>
-            </div>
-            <button type="submit" style={styles.button}>
-              Sign Up
-            </button>
-          </form>
+    <div>
+      <ToastContainer />
+      <div style={styles.container}>
+        <div style={styles.formContainer}>
+          <div style={styles.card}>
+            <h2>Sign Up</h2>
+            <form onSubmit={handleSubmit}>
+              <div style={styles.formGroup}>
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  style={styles.input}
+                />
+              </div>
+              <div style={styles.formGroup}>
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  style={styles.input}
+                />
+                {errors.email && <span style={styles.error}>{errors.email}</span>}
+              </div>
+              <div style={styles.formGroup}>
+                <label htmlFor="password">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  style={styles.input}
+                />
+                {errors.password && <span style={styles.error}>{errors.password}</span>}
+              </div>
+              <div style={styles.formGroup}>
+                <label htmlFor="role">Role:</label>
+                <select
+                  id="role"
+                  name="role"
+                  value={selectedRole}
+                  onChange={(e) => setSelectedRole(e.target.value)}
+                  style={styles.input}
+                >
+                  <option value="user">User</option>
+                  <option value="lender">Lender</option>
+                </select>
+              </div>
+              <button type="submit" style={styles.button}>
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+        <div style={styles.imageContainer}>
+        <img src="/signin.png" alt="Right Image" style={styles.image} />
         </div>
       </div>
-      <div style={styles.imageContainer}>
-        {/* Replace with your image URL */}
-        <img src="/signin.png" alt="Right Image" style={styles.image} />
-      </div>
     </div>
+
   );
 };
 
@@ -187,7 +202,7 @@ const styles = {
   },
   imageContainer: {
     flex: 1,
-    marginLeft: '20px', // Adjust the margin as needed
+    marginLeft: '20px',
   },
   image: {
     width: '100%',
