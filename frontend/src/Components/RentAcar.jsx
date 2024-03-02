@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaCar } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './RentAcar.css';
 
 const RentAcar = () => {
@@ -24,6 +25,14 @@ const RentAcar = () => {
     fetchData();
   }, []);
 
+  const handleRentNow = (carId, carAmount, carName) => {
+    // Store the car ID, car amount, and car name in local storage
+    localStorage.setItem('selectedCarId', carId);
+    localStorage.setItem('selectedCarAmount', carAmount);
+    localStorage.setItem('selectedCarName', carName);
+    console.log('Car ID, amount, and name stored in local storage:', carId, carAmount, carName);
+  };
+
   if (loading) {
     // Display loading animation or spinner while fetching data
     return (
@@ -38,11 +47,6 @@ const RentAcar = () => {
     return <div>Error: {error}</div>;
   }
 
-  const handleRentNow = (carId) => {
-    // Implement your logic for renting the car
-    console.log(`Renting car with ID: ${carId}`);
-  };
-
   return (
     <div className="car-list">
       {cars.map((car) => (
@@ -51,8 +55,11 @@ const RentAcar = () => {
           <div>
             <h3>{car.carName}</h3>
             <p>Model: {car.carModel}</p>
-            <p>Amount: {car.carAmount}</p>
-            <button onClick={() => handleRentNow(car._id)}>Rent Now <FaCar /></button>
+            <p>Amount: {car.carAmount}  per day</p>
+            {/* Change button to call handleRentNow */}
+            <Link to={`/user-dashboard/payment/${car._id}`}>
+              <button onClick={() => handleRentNow(car._id, car.carAmount, car.carName)}>Rent Now <FaCar /></button>
+            </Link>
           </div>
         </div>
       ))}

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt ,FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 const Home = () => {
   return (
@@ -125,6 +126,28 @@ const Home = () => {
         </div>
       </div>
       </section>
+      <section className='section-about-us'>
+  <div className="aboutus-content">
+    <h2 className='about-h2'>About Us</h2>
+    <p className='about-para is-visible'>We are a premier car rental service dedicated to providing exceptional customer experiences and a wide range of luxury vehicles.</p>
+  </div>
+  <div className="aboutus-background"></div>
+  <img src="/pardo.jpg" className="background-image" alt="About Us Background" />
+</section>
+<section class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p><FaEnvelope /> roadwaycars@roadways.com</p>
+        <p><FaPhone />  Phone: +91 9447187403</p>
+        <p><FaMapMarkerAlt/> Address: 123 Main Street Kozhikode</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Roadwaycars. All rights reserved.</p>
+    </div>
+
+</section>
 
     </div>
   );

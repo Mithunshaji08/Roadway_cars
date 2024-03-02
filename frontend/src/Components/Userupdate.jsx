@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios for making HTTP requests
 import './Userupdate.css'; // Import CSS file for component styling
 
 const UserUpdate = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    if (storedUser) {
+      setUserId(storedUser._id);
+    }
+  }, [storedUser]);
 
   const [formData, setFormData] = useState({
     name: storedUser ? storedUser.name : '',
@@ -21,7 +28,7 @@ const UserUpdate = () => {
     e.preventDefault();
     try {
       // Make a PUT request to update user data
-      const response = await axios.put(`http://localhost:8055/update-user/${storedUser._id}`, formData);
+      const response = await axios.put(`http://localhost:8055/update-user/${userId}`, formData);
       console.log('Update successful:', response.data);
 
       // Update local storage with the updated user data

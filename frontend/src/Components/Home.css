@@ -66,5 +66,92 @@
     width: 100%;
   }
 
+  .section-about-us {
+    position: relative;
+    height: 500px; /* Adjust height as needed */
+  }
   
- 
+  .aboutus-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white; /* Example text color */
+    text-align: center; /* Center the text */
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1px); /* Optional: Add a blur effect to the image */
+  }
+  
+  .aboutus-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); /* Customize gradient colors and direction */
+  }
+  .about-h2{
+    font-size:50px;
+  }
+
+  .about-para {
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 1s ease; /* Add a transition for opacity */
+  }
+  
+  .about-para.is-visible {
+    opacity: 5;
+  }
+  .footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 50px 0;
+  }
+  
+  .footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow content to wrap */
+  }
+  
+  .footer .footer-content {
+    flex: 1; /* Make this section take up available space */
+    margin-right: 20px; /* Add some spacing between sections */
+  
+  }
+  
+  .footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .footer p {
+    margin-bottom: 10px;
+  }
+
+  .footer-column{
+    text-align: left;
+    margin-left: 80px;
+  }
+  
+  .footer .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .footerlogo{
+    width: 10px;
+  }

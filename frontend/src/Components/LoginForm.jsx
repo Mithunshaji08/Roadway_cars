@@ -78,7 +78,7 @@ const LoginForm = () => {
         if (formData.role === 'user') {
           toast.success('Login successful!', { position: 'top-center' });
           // Redirect to user-dashboard with user ID
-          navigate(`/user-dashboard/${userData.id}`);
+          navigate(`/user-dashboard/rend-a-car/${userData.id}`);
         } else if (formData.role === 'lender') {
         localStorage.setItem('lender', JSON.stringify(userData));
         localStorage.setItem('lenderId', userData.id); // Store lender ID separatel
@@ -158,10 +158,9 @@ const LoginForm = () => {
               </div>
               <button type="submit" style={styles.button}>Login</button>
               <br />
-              <a>
                 <Link to={'/signup'}>Don't have an account?</Link>
-              </a>
             </form>
+            <Link to={'/admin'}>are you a admin?</Link>
           </div>
         </div>
       </div>

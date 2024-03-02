@@ -1,0 +1,42 @@
+/* Admindashboard.css */
+
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.side-nav {
+  width: 200px;
+  background-color: #000000; /* Set your desired background color */
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box; /* Include padding in the height calculation */
+}
+
+.main-content {
+  flex: 1;
+}
+
+.side-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-nav ul li {
+  margin-bottom: 10px;
+}
+
+.side-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.side-nav ul li a:hover {
+  background-color: #555;
+}
+
+.side-nav ul li a svg {
+  margin-right: 10px;
+}

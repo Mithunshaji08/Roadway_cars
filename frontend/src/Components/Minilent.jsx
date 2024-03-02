@@ -2,6 +2,7 @@
 import React from 'react';
 import { FaCar, FaCalendarAlt, FaPalette, FaCogs } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './Carlent.css';
 
 const Minilent = () => {
@@ -49,7 +50,9 @@ const Minilent = () => {
           <p>+919447187403</p>
         </div>
         <div className="rent-button-container">
+          <Link to='/login'>
           <a href="#" className="btn btn-primary">Rent Now <FaArrowRight /></a>
+          </Link>
         </div>
       </div>
     </div>

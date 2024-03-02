@@ -9,9 +9,10 @@ import Signup from './Components/Signup';
 import Userdashboard from './Components/Userdashboard';
 import CarLendorDashboard from './Components/CarLendorDashboard';
 import UserUpdate from './Components/Userupdate';
-import Payment from './Components/Payment';
-
-
+import AdminHome from './Components/Adminhome';
+import AdminRegister from './Components/Adminregister';
+import AdminLogin from './Components/AdminLogin';
+import AdminDashboard from './Components/Admindashboard';
 
 
 
@@ -32,6 +33,10 @@ function App() {
         <Route path='/lendor-dashboard/*' element={<CarLendorDashboard />} />
         <Route path='/user-dashboard/*' element={<Userdashboard/>} />
         <Route path='/update-user/:id' element={<UserUpdate/>} />
+        <Route path='/admin' element={<AdminHome/>}/>
+        <Route path='/admin-register' element={<AdminRegister/>}/>  
+        <Route path='/admin-login' element={<AdminLogin/>}/>
+        <Route path='/admin-dashboard/*' element={<AdminDashboard/>} />  
         
       </Routes>  
      

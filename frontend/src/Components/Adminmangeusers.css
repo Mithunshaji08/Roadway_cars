@@ -1,0 +1,35 @@
+/* Adminmangeusers.css */
+
+.table-container {
+    margin-top: 20px;
+   max-height: calc(100vh - 100px); /* Adjust based on your layout */
+  overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .table-scroll {
+    overflow: auto; /* Enable scrolling for overflow content */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  table tr:hover {
+    background-color: #ddd;
+  }

@@ -1,7 +1,8 @@
-// LentACar component
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './LentAcar.css';
+import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer from react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import the default CSS for react-toastify
 
 const LentACar = () => {
   const [carDetails, setCarDetails] = useState({
@@ -39,6 +40,7 @@ const LentACar = () => {
     try {
       const response = await axios.post('http://localhost:8055/lent-a-car', carDetails);
       console.log('Car Details Submitted:', response.data);
+      toast.success('Car lended successfully!');
       setError('');
     } catch (error) {
       console.error('Error submitting car details:', error);
@@ -47,10 +49,10 @@ const LentACar = () => {
   };
 
   return (
-    <div className="card-container">
-      <div className="card">
-        <div className="card-header">Car Details</div>
-        <div className="card-body">
+    <div className="rentcard-container">
+      <div className="rentcard">
+        <div className="rentcard-header">Car Details</div>
+        <div className="rentcard-body">
           <form>
             <div className="form-group">
               <label htmlFor="lenderName">Lender Name:</label>
@@ -124,8 +126,10 @@ const LentACar = () => {
           </form>
         </div>
       </div>
+      <ToastContainer /> {/* Add ToastContainer here */}
     </div>
   );
 };
 
 export default LentACar;
+
